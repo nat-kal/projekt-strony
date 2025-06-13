@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <title>Magazyn</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <h1>Stan konta: {{ saldo }} zł</h1>
+
+    <h2>Magazyn</h2>
+    <ul>
+        {% for produkt, ilosc in magazyn.items() %}
+            <li>{{ produkt }}: {{ ilosc }} szt.</li>
+        {% endfor %}
+    </ul>
+
+    <h2>Zmiana salda</h2>
+    <form method="post">
+        <input type="hidden" name="zmiana_salda">
+        Komentarz: <input name="komentarz"><br>
+        Wartość: <input name="wartosc" type="number"><br>
+        <button type="submit">Zmień saldo</button>
+    </form>
+
+    <h2>Zakup</h2>
+    <form method="post">
+        <input type="hidden" name="zakup">
+        Nazwa: <input name="nazwa"><br>
+        Cena: <input name="cena" type="number"><br>
+        Ilość: <input name="ilosc" type="number"><br>
+        <button type="submit">Kup</button>
+    </form>
+
+    <h2>Sprzedaż</h2>
+    <form method="post">
+        <input type="hidden" name="sprzedaz">
+        Nazwa: <input name="nazwa"><br>
+        Cena: <input name="cena" type="number"><br>
+        Ilość: <input name="ilosc" type="number"><br>
+        <button type="submit">Sprzedaj</button>
+    </form>
+
+    <p><a href="/historia/">Zobacz historię</a></p>
+</body>
+</html>

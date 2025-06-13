@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <title>Historia operacji</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <h1>Historia operacji</h1>
+
+    {% if komunikat %}
+        <p style="color: red;">{{ komunikat }}</p>
+    {% endif %}
+
+    <ul>
+        {% for linia in historia %}
+            <li>{{ linia.strip() }}</li>
+        {% endfor %}
+    </ul>
+
+    <form action="" method="get">
+        <label>Od: <input type="number" name="start"></label>
+        <label>Do: <input type="number" name="end"></label>
+        <button type="submit">Filtruj historię</button>
+    </form>
+
+    <p>Dostępnych linii: {{ liczba_linii }}</p>
+    <p><a href="/">Powrót do strony głównej</a></p>
+</body>
+</html>
